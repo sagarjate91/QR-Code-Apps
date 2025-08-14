@@ -13,6 +13,4 @@ public class QrCodeAppsApplication {
 		SpringApplication.run(QrCodeAppsApplication.class, args);
 	}
 
-
-
 }

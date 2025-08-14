@@ -1,0 +1,89 @@
+/* Registration-specific styles extending auth.css */
+
+/* Override body for registration page to handle longer content */
+body {
+    padding: 2rem 0;
+}
+
+/* Registration container adjustments */
+.auth-container {
+    max-width: 500px;
+}
+
+/* Registration form specific spacing */
+.form-group {
+    margin-bottom: 1.25rem;
+}
+
+/* Two-column layout for name fields */
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+/* Progress indicator */
+.progress-indicator {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+}
+
+.progress-step {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #e2e8f0;
+    margin: 0 4px;
+    transition: all 0.3s ease;
+}
+
+.progress-step.active {
+    background: var(--accent-color);
+    transform: scale(1.2);
+}
+
+/* Form validation styles */
+.form-validation {
+    font-size: 0.8rem;
+    color: #e53e3e;
+    margin-top: 0.25rem;
+    display: none;
+}
+
+/* Password strength indicator */
+.strength-meter {
+    height: 4px;
+    background: #e2e8f0;
+    border-radius: 2px;
+    margin-top: 0.5rem;
+    overflow: hidden;
+}
+
+.strength-bar {
+    height: 100%;
+    background: var(--accent-color);
+    width: 0%;
+    transition: all 0.3s ease;
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 768px) {
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .auth-container {
+        padding: 1rem;
+    }
+
+    .auth-card {
+        padding: 2rem 1.5rem;
+        border-radius: 20px;
+    }
+
+    .auth-title {
+        font-size: 1.75rem;
+    }
+}
