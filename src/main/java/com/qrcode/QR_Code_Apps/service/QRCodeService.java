@@ -4,6 +4,7 @@ import com.google.zxing.*;
 import com.google.zxing.client.j2se.BufferedImageLuminanceSource;
 import com.google.zxing.client.j2se.MatrixToImageWriter;
 import com.google.zxing.common.BitMatrix;
+import com.google.zxing.common.HybridBinarizer;
 import com.google.zxing.qrcode.QRCodeReader;
 import com.google.zxing.qrcode.QRCodeWriter;
 import lombok.extern.slf4j.Slf4j;
@@ -29,7 +30,7 @@ public class QRCodeService {
 
         int width = 500;
         int height = 500;
-        String filePath = "C:\\QRCode\\" + mobile + ".png";
+        String filePath = mobile + ".png";
 
         QRCodeWriter qrCodeWriter = new QRCodeWriter();
         try {
@@ -54,13 +55,7 @@ public class QRCodeService {
         int width = 500;
         int height = 500;
 
-        // Create QRCode directory if it doesn't exist
-        File directory = new File("C:\\QRCode");
-        if (!directory.exists()) {
-            directory.mkdirs();
-        }
-
-        String filePath = "C:\\QRCode\\" + filename + ".png";
+        String filePath = filename + ".png";
 
         QRCodeWriter qrCodeWriter = new QRCodeWriter();
         try {
@@ -79,7 +74,7 @@ public class QRCodeService {
      * Get the file path of a user's QR code
      */
     public String getUserQRCodePath(String mobile) {
-        return "C:\\QRCode\\" + mobile + ".png";
+        return mobile + ".png";
     }
 
     /**
@@ -104,7 +99,7 @@ public class QRCodeService {
             }
 
             LuminanceSource source = new BufferedImageLuminanceSource(bufferedImage);
-            BinaryBitmap bitmap = new BinaryBitmap(new com.google.zxing.common.HybridBinarizer(source));
+            BinaryBitmap bitmap = new BinaryBitmap(new HybridBinarizer(source));
             Result result = new QRCodeReader().decode(bitmap);
 
             log.info("Successfully decoded QR code: " + result.getText());
