@@ -3,7 +3,7 @@ spring:
     name: QR-Code-Apps
 
   datasource:
-    url: jdbc:mysql://localhost:3306/qr_code_app
+    url: jdbc:mysql://localhost:3306/qr_code_app?createDatabaseIfNotExist=true
     username: root
     password: admin
     driver-class-name: com.mysql.cj.jdbc.Driver
